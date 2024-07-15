@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.class.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: mogawa <masaruo@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:07:30 by mogawa            #+#    #+#             */
-/*   Updated: 2024/02/07 11:13:24 by mogawa           ###   ########.fr       */
+/*   Updated: 2024/05/26 06:06:34 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ WrongAnimal::WrongAnimal(WrongAnimal const &rhs)
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
 {
 	std::cout << BLUE << "[WrongAnimal] operator assignment constructor called." << RESET << std::endl;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return (*this);
 }
 

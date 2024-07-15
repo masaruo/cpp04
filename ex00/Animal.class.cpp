@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: mogawa <masaruo@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:07:30 by mogawa            #+#    #+#             */
-/*   Updated: 2024/02/07 10:36:31 by mogawa           ###   ########.fr       */
+/*   Updated: 2024/05/26 05:38:25 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ Animal::Animal(Animal const &rhs)
 Animal	&Animal::operator=(Animal const &rhs)
 {
 	std::cout << RED << "[Animal] operator assignment constructor called." << RESET << std::endl;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return (*this);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: mogawa <masaruo@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:54:08 by mogawa            #+#    #+#             */
-/*   Updated: 2024/02/07 10:40:57 by mogawa           ###   ########.fr       */
+/*   Updated: 2024/05/26 05:36:08 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Cat::~Cat()
 	return ;
 }
 
-Cat::Cat(Cat const &rhs)// using initializer
+Cat::Cat(Cat const &rhs)
 :Animal(rhs._type)
 {
 	std::cout << YELLOW << "[Cat] copy constructor called." << RESET << std::endl;
@@ -37,8 +37,10 @@ Cat::Cat(Cat const &rhs)// using initializer
 Cat	&Cat::operator=(Cat const &rhs)
 {
 	std::cout << YELLOW << "[Cat] assignment copy constructor called." << RESET << std::endl;
-	// *this = rhs;//! 一括代入だめ？error: all paths through this function will call itself [-Werror,-Winfinite-recursion]
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return (*this);
 }
 

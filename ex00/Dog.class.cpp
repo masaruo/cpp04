@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: mogawa <masaruo@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:41:25 by mogawa            #+#    #+#             */
-/*   Updated: 2024/02/07 10:36:14 by mogawa           ###   ########.fr       */
+/*   Updated: 2024/05/26 05:37:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ Dog::Dog(Dog const &rhs)// using copy assingment operator
 Dog	&Dog::operator=(Dog const &rhs)
 {
 	std::cout << GREEN << "[Dog] assignment copy constructor called." << RESET << std::endl;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		_type = rhs._type;
+	}
 	return (*this);
 }
 

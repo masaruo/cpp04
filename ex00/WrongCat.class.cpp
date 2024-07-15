@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.class.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: mogawa <masaruo@gmail.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:54:08 by mogawa            #+#    #+#             */
-/*   Updated: 2024/02/07 11:19:17 by mogawa           ###   ########.fr       */
+/*   Updated: 2024/05/26 06:07:00 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ WrongCat::WrongCat()
 WrongCat::~WrongCat()
 {
 	std::cout << MAGENTA << "[WrongCat] destructor called." << RESET << std::endl;
-	// delete this;//!how to use delete in destructor ASK
 	return ;
 }
 
@@ -38,7 +37,10 @@ WrongCat::WrongCat(WrongCat const &rhs)// using initializer
 WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
 	std::cout << MAGENTA << "[WrongCat] assignment copy constructor called." << RESET << std::endl;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
 	return (*this);
 }
 
